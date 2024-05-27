@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var mob_scene: PackedScene
+
 var screen_size : Vector2i
 var PlayerInitialPosition
 
@@ -11,10 +13,14 @@ func _ready():
 func new_game():
 	$Player.position = PlayerInitialPosition
 	$Floor.position.x = 0
+	$MOBTimer.start()
 
 func game_over():
 	GHUD.update_highscore()
 
 func _process(delta):
-	if ($Player.position.x - $Floor.position.x) > screen_size.x:
-		$Floor.position.x += screen_size.x
+	$Floor.position.x = $Player.position.x - 150
+
+
+func _on_mob_timer_timeout():
+	print('creando mob...')
