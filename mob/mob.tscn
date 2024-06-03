@@ -11,22 +11,29 @@ size = Vector2(125, 127)
 script = ExtResource("1_3glid")
 
 [node name="BlueSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-62, -63)
 texture = ExtResource("2_3psyd")
 
 [node name="BlueCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-62.5, -63.5)
 shape = SubResource("RectangleShape2D_27tpj")
+disabled = true
 
 [node name="RedSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-62, -63)
 texture = ExtResource("3_8262e")
 
 [node name="RedCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-62.5, -63.5)
 shape = SubResource("RectangleShape2D_27tpj")
+disabled = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-11, -10)
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

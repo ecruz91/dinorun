@@ -131,7 +131,7 @@ size = Vector2(135, 84)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qi77"]
 size = Vector2(89, 136)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["dinoplayer"]]
 script = ExtResource("1_j6la3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

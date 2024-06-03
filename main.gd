@@ -9,8 +9,10 @@ var PlayerInitialPosition
 func _ready():
 	screen_size = get_window().size
 	PlayerInitialPosition = $Player.position
+	GHUD.start_game_btn.connect(new_game)
 
 func new_game():
+	print('el jeshua')
 	$Player.position = PlayerInitialPosition
 	$Floor.position.x = 0
 	$MOBTimer.start()
@@ -23,4 +25,11 @@ func _process(delta):
 
 
 func _on_mob_timer_timeout():
-	print('creando mob...')
+	var mob = mob_scene.instantiate()
+	mob.position.x = $Player.position.x + 1500
+	mob.position.y = 640
+	add_child(mob)
+	mob.hit.connect(game_over)
+	$MOBTimer.wait_time = 1 #randf() * (3 - 0.5) + 0.5
+
+
