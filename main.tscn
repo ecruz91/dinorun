@@ -24,5 +24,6 @@ limit_bottom = 0
 [node name="Floor" parent="." instance=ExtResource("3_hy0go")]
 
 [node name="MOBTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="timeout" from="MOBTimer" to="." method="_on_mob_timer_timeout"]
